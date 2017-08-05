@@ -1,0 +1,48 @@
+
+body
+{
+	background: black;
+	color: black;
+	font-family: "Times New Roman", Times, serif;
+	font-size: 20px;
+	
+}
+
+#hangmanImg
+{
+
+	display: block;											/* Both diplay: block & margin: auto will center img title */
+	margin: auto;
+	height: 150px;
+
+	text-align: center;
+	
+
+	/*border: 5px solid brown;*/
+
+}
+
+ul
+{
+	
+	/* border: 1px solid black; */
+}
+
+#current-word li											/* undordered list of (_    _    _   _) */
+{
+	display: inline;									    /* displays each list item horizontally */
+	letter-spacing: 20px;
+
+
+}
+
+#already-guess li
+{
+	display: inline;									    /* displays each list item horizontally */
+	letter-spacing: 20px;
+}
+
+.jumbotron
+{
+	height: 600px;
+}

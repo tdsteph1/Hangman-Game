@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title> Hangman </title>
+
+  <!-- Latest compiled and minified CSS -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+<!-- Optional theme -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+<!-- jQuery, javascript file for the Bootstrap's javascript file to function -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+  <!-- Bootstrap's javascript file that allows the dropdown menu to work  -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+  <link rel="stylesheet" href="assets/css/style.css">
+
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+  
+</head>
+
+<body>
+
+<!-- Image Header Tittle -->
+
+<img id="hangmanImg" src="assets/images/hangmanImg.png">
+
+
+<!-- Bootstrap Code goes here -->
+
+<div class="container">
+
+  <div class="jumbotron">
+
+  	<!-- Row 1 -->
+  	<div class="row">
+
+  		<!-- Col 1 -->
+  		<div class="col-md-5">
+
+			
+  			<span id="imgReplace"> <img id="img-responsive" src="assets/images/blank.png"> </span>
+
+  		</div>
+
+  		<!-- Col 2 -->
+  		<div class="col-md-7 press">
+
+  			<p> Press Any Key to get Started! </p>
+
+  		</div>
+
+  	</div>  <!-- End of Row 1 -->
+
+
+
+    <!-- Row 2 -->
+  	<div class="row">
+
+  		<!-- Col 1 -->
+  		<div class="col-md-5">
+
+  			<h2> <span id="winning-text">  </span> </h2>
+
+  		</div>
+
+  		<!-- Col 2 -->
+  	 	<div class="col-md-7">
+
+  			 <p> Wins: <span id="wins"> <strong> 0 </strong> </span>								<!-- id="wins" is utilized for replacing 0 with number of times you win hangman -->
+
+  		</div>
+
+
+
+    </div> <!-- End of Row2 -->
+
+
+
+    <!-- Row 3 -->
+  	<div class="row">
+
+  		<!-- Col 1 -->
+  		<div class="col-md-5">
+
+  			
+
+  		</div>
+
+  		<!-- Col 2 -->
+  	 	<div class="col-md-7 win">
+
+  			  <p> Current Word </p>																	<!-- id="current-word" is utilized for replacing Nothing each letter of a word guessed correctly -->
+  			  
+  			 <ul id="current-word" style="list-style-type:none">									<!-- "list-style-type:none" removes bullets -->
+
+  				<li id="letter1"> </li>																<!-- if letter is guessed correctly then replace one of the letter #id tags with the correct letter -->
+  				<li id="letter2"> </li> 													
+  				<li id="letter3"> </li> 
+  				<li id="letter4"> </li> 
+  				<li id="letter5"> </li> 
+  				<li id="letter6"> </li>
+  				<li id="letter7"> </li>
+  				<li id="letter8"> </li> 												  				<!-- Also delete these (_) when user guesses in order for him to determine word length -->
+  				<li id="letter8"> </li>
+  				<li id="letter9"> </li>
+  				<li id="letter10"> </li>
+  				<li id="letter11"> </li>
+  				<li id="letter12"> </li>
+  				<li id="letter13"> </li>
+  				<li id="letter14"> </li>
+  				<li id="letter15"> </li>
+
+  			</ul>
+
+  		</div>
+
+
+
+    </div> <!-- End of Row3 -->
+
+
+    <!-- Row 4 -->
+  	<div class="row">
+
+  		<!-- Col 1 -->
+  		<div class="col-md-5">
+
+  			
+
+  		</div>
+
+  		<!-- Col 2 -->
+  	 	<div class="col-md-7 win">
+
+  			<p> Guesses Remaining <span id="guess-remain"> <strong> 13 </strong> </span>			<!-- id="guess-remain" is utilized for decrementing 13 each time a letter is guessed incorrectly -->
+
+  		</div>
+
+
+
+    </div> <!-- End of Row3 -->
+
+
+
+    <!-- Row 5 -->
+  	<div class="row">
+
+  		<!-- Col 1 -->
+  		<div class="col-md-5">
+
+  			
+
+  		</div>
+
+  		<!-- Col 2 -->
+  	 	<div class="col-md-7 win">
+
+  			<p> Letters Already Guessed </p> 
+  																		
+  																		<!-- NOTE: if user hits (s) on keyboard then we don't want (s) to appear twice if user hits (s) again -->
+  			<ul id="already-guess" style="list-style-type:none">		<!-- id="already-guess" is utilized for adding letters in blank spaces with letters that user has already guessed -->
+				
+				<li id="letterUsed1">  <strong>  </strong> </li>
+				<li id="letterUsed2">  <strong>  </strong> </li>
+				<li id="letterUsed3">  <strong>  </strong> </li>
+			    <li id="letterUsed4">  <strong>  </strong> </li>
+				<li id="letterUsed5">  <strong>  </strong> </li> 
+			    <li id="letterUsed6">  <strong>  </strong> </li> 
+				<li id="letterUsed7">  <strong>  </strong> </li> 
+				<li id="letterUsed8">  <strong>  </strong> </li>
+				<li id="letterUsed9">  <strong>  </strong> </li>
+				<li id="letterUsed10"> <strong>  </strong> </li>
+				<li id="letterUsed11"> <strong>  </strong> </li>
+			    <li id="letterUsed12"> <strong>  </strong> </li>
+			    <li id="letterUsed13"> <strong>  </strong> </li>
+
+			</ul>
+
+  		</div>
+
+
+
+    </div> <!-- End of Row5 -->
+
+   
+
+
+ </div> <!-- End of Jumbotron -->
+
+ </div> <!-- End of container -->
+
+
+
+
+
+
+
+<script src="assets/javascript/game.js"></script>
+
+</body>
+</html>
