@@ -21,6 +21,8 @@ var wins = 0;
 
 var audio;
 
+var iterator = 0;
+
 												//so we can pause when we find next game
 
 //Call string concat id (function3) to fill in a certain number of (_) using for loop which will add (_) 
@@ -42,7 +44,7 @@ document.onkeyup = function(event)
 
 	if(findWord == true)
 	{
-		if(audio != null)					//This will stop at (iteration2) (iteration3) & > . The reason for if-stmt is to prevent error when audio = null at 1rst iteration
+		if(iterator > 0)					//This will stop at (iteration2) (iteration3) & > . The reason for if-stmt is to prevent error when audio = null at 1rst iteration
 		{									//meaning you cannot invoke stop function audio stop at the beginning since no music is playing on iteration1.
 			audio.pause();
 		}
@@ -283,7 +285,7 @@ function playSoundClip(game)
 	audio.play();
 	
 	
-
+	iterator++;
 
 }
 
